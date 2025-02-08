@@ -1,0 +1,30 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PassedName: ${{ vars.Name }}
+  PassedRollNo: ${{ vars.RollNo }}
+
+jobs:
+  Variables_Result:
+    name: "Stage 1 - Variables Result"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Variables
+        run: |
+          echo "Name: $PassedName"
+          echo "Roll No: $PassedRollNo"
+
+  Secrets_Result:
+    name: "Stage 2 - Secrets Result"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Secret (Masked Output)
+        run: |
+          echo "Secret: $MY_SECRET"
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
