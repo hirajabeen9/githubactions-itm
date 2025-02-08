@@ -1,2 +1,2 @@
 # githubactions-itm
-Practicing Git,Github Actions
+Practicing Git,Github Actions.
